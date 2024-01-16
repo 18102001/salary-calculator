@@ -5,40 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salary Calculator</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      text-align: center;
-      padding: 20px;
-    }
-    .calculator {
-      max-width: 400px;
-      margin: 0 auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    label {
-      display: block;
-      margin-bottom: 8px;
-    }
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #4caf50;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
+    
+.calculator {
+  background-color: #f2f2f2; 
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 5px; 
+  overflow: hidden; 
+}
+
+
+.calculator h2 {
+  font-family: 'Roboto', sans-serif; 
+  color: #424242; 
+  padding: 15px 20px;
+  background-color: #bbbbdd; 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
+}
+
+
+button {
+  background-color: #4caf50; 
+  color: #f8f8f9; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 20px; /* Adjust padding as needed */
+  text-transform: uppercase; /* Capitalize text for emphasis */
+  cursor: pointer; /* Hand cursor on hover */
+  transition: all 0.2s ease-in-out; /* Smooth transitions */
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  box-shadow: 0 2px 4px rgba(10, 10, 10, 0.2); /* Highlight effect */
+}
+
+/* Result display with subtle material touches */
+#result {
+  background-color: #fff; /* White background for clarity */
+  padding: 15px; /* Padding for content */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Slight shadow */
+  border-radius: 5px; /* Rounded corners */
+  opacity: 0; /* Initially hidden for animation */
+  transition: opacity 0.4s ease-in-out; /* Fade-in animation */
+}
+
+/* Animation on calculation completion */
+#result.visible {
+  opacity: 1; /* Fade in */
+}
+
+
+
   </style>
 </head>
 <body>
@@ -64,7 +83,7 @@
       <option value="fresher">Fresher</option>
       <option value="1year">1 Year</option>
       <option value="2year">2 Years</option>
-      <!-- Add more options as needed -->
+      
     </select>
 
     <button onclick="calculateSalary()">Calculate Salary</button>
@@ -103,7 +122,15 @@
         <p>Annual CTC: ${annualCtc}</p>
         <p>Monthly Salary: ${monthlySalary.toFixed(2)}</p>
       `;
-    }
+    }{
+ 
+
+  const resultElement = document.getElementById('result');
+  resultElement.innerHTML = `
+    `;
+  resultElement.classList.add('visible'); // Trigger animation
+}
+
   </script>
 
 </body>
